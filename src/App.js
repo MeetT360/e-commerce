@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import styled from "styled-components";
 import { UserContext } from './UserContext';
 import { UserProvider } from './UserContext';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 export {UserContext};
 
 const mydata = require("./data/data.json");
@@ -50,7 +50,7 @@ function App() {
     } else {
       alert("login please")
       return (
-        <Navigate to = '/home'/>
+        <Navigate to = '/'/>
       )
     }
   
@@ -72,15 +72,15 @@ function App() {
   return (
     <UserProvider>
     <div className="App" >
-    <BrowserRouter>
+    <HashRouter>
     <Navbar setCart = {setCart} toggleLogin = {toggleLogin}></Navbar>
     <Routes>
-      <Route exact path = '/home' element={<MainPage/>}>
+      <Route path = '/' element={<MainPage/>}>
       </Route>
-      <Route path="/home/cart" element={<CartPage/>}>
+      <Route path='/cart' element={<CartPage/>}>
       </Route>
     </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </div>
     </UserProvider>
   );

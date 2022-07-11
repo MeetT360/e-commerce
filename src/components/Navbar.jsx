@@ -50,7 +50,7 @@ function NavContainer(props) {
 
 const gotoCart = () => {
     if (user.loggedin) {
-        navigate('/home/cart');
+        navigate('/cart');
     }
 }
 
